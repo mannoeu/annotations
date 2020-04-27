@@ -149,6 +149,14 @@ texto com imagem ou vídeo de fundo
   // remove a cor de preenchimento do texto permitindo ver o degrade dentro do texto.
 display: inline; 
   // para o background n ocupar 100% width enquanto o texto apenas uma parte.
+  
+  ------ ou
+  position: absolute; na div principal, no vídeo e no texto +
+  texto{
+  	background: color;
+	color: color;
+	mix-blend-mode: screen;
+  }
 ```
 aplicando gradient em cima de imagens pelo css
 ```
