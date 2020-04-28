@@ -240,3 +240,33 @@ rename 's/\.JPG/\.jpg/' *.JPG
 ### links
 cdn fontawesome -> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+
+
+
+
+
+
+
+
+### trechos de código
+Exibir números primos até um certo valor:
+```
+function exibePrimos(limite){
+let primos = [];
+    for(let i=1; i<limite; i++){
+        const numero = ehPrimo(i);
+        primos = [...primos, numero];
+    }
+    console.log(primos);
+}
+
+function ehPrimo(value){
+    for(let i=1; i<value; i++){
+        if(value%i !== 0){
+            return value;
+        }
+    }
+}
+```
+
