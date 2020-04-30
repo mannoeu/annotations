@@ -251,22 +251,24 @@ cdn fontawesome ->
 
 ### trechos de código
 Exibir números primos até um certo valor:
+- 0 não é primo pois pode ser dividido por qualquer outro número;
+- 1 não é primo pois só possui um divisor (ele mesmo = 1);
+- então começamos a partir do 2.
 ```
 function exibePrimos(limite){
-let primos = [];
-    for(let i=1; i<limite; i++){
-        const numero = ehPrimo(i);
-        primos = [...primos, numero];
+    for(let i=2; i<=limite; i++){
+        ehPrimo(i) &&
+           console.log(i);
     }
-    console.log(primos);
 }
 
 function ehPrimo(value){
-    for(let i=1; i<value; i++){
-        if(value%i !== 0){
-            return value;
+    for(let j=2; j<value; j++){
+        if(value%j === 0){
+            return false;
         }
     }
+    return true;
 }
 ```
 format price
