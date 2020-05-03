@@ -183,7 +183,24 @@ background: linear-gradient(0deg,#130b1a 0,rgba(19,11,26,.71)
 2. A primeira cor é a da seção de baixo, as demais são variações para formar degrade
 setar a bg do elemento original com position absolute;
 ```
+### Fontes responsivas usando calc()
 
+- largura máxima das páginas: 1200px,
+- breakpoint para fontes: 500px,
+- tamanhos das fontes:
+- viewport < 500px — font-size: 16px;
+- viewport > 500px — font-size: 24px;
+- Para viewport maior que 500px tamanho da fonte deverá variar de 16px até 24px ou seja uma variação de 8px.
+- A taxa de variação do tamanho da fonte é de 8/1200 = 0,66667%
+- Para viewport maior que 500px devemos declarar um tamanho de fonte igual a: calc(16px + 0.6667vw)
+- font-size = calc( [font-size-min] + ( ([font-size-max] - [font-size-min]) / [max-width-pag] ) * 100vw
+```
+@media screen and (min-width: 500px) {
+  .texto {
+    font-size: calc(16px + (8/1200) * 100 * 1vw);
+  }
+}
+```
 
 
 ### jquery
