@@ -134,6 +134,35 @@ const findPeople = array.find(item => item === 'Joao');
 console.log(findPeople);
 ```
 
+#### split()
+Separa os caracteres de uma String em um Array
+```
+const nome = 'Emmanuel';
+nome.split('');
+
+Saída: ["E", "m", "m", "a", "n", "u", "e", "l"];
+```
+
+#### reverse();
+Inverte a ordem de colocação de items em um Array
+```
+const array = ['a','b','c'];
+array.reverse();
+
+Saída: ['c','b','a'];
+```
+
+#### join()
+Une items de um Array para formar uma string
+```
+const nome = 'Emmanuel';
+nome.split('').reverse.join();
+
+Saída: "l,e,u,n,a,m,m,E"
+Para remover as vírgulas e tornar uma String sem espaços basta passar como parâmetro para o join('') uma string vazia:
+Saída: "leunammE";
+```
+
 ### css
 scroll suave por âncoras
 ```
