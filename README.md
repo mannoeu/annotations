@@ -162,6 +162,59 @@ Saída: "l,e,u,n,a,m,m,E"
 Para remover as vírgulas e tornar uma String sem espaços basta passar como parâmetro para o join('') uma string vazia:
 Saída: "leunammE";
 ```
+#### Math.sign()
+1. Retorna 1 se número é positivo
+2. Retorna -1 se número é negativo
+3. Retorna 0 se número é nulo = 0;
+4. Funciona com string '1111' ou '-1111' mas retorna NaN para letras.
+```
+console.log(Math.sign(51))
+// Saída: 1
+
+console.log(Math.sign(-36))
+// Saída: -1
+
+console.log(Math.sign(0))
+// Saída: 0
+```
+#### Math.sqrt()
+1. Retorna a raiz quadrada do número
+```
+console.log(Math.sqrt(90))
+
+// Saída: 9.486832980505138
+```
+#### Math.sin()
+1. Retorna o seno de um numero
+```
+console.log(Math.sin(4))
+// Saída: -0.7568024953079282
+```
+#### Math.floor() + Math.random
+1. floor() retorna um número inteiro.
+2. random() gera um número aleatório.
+3. Usados em conjunto é possível randomizar geração de números inteiros aleatórios entre um intervalo.
+```
+console.log(Math.floor(Math.random() * 10));
+
+// Saída: um número aleatório de 0 à 10.
+
+console.log(Math.floor(Math.random() * 10) + 1);
+
+// Saída: um número aleatório de 1 à 10.
+```
+#### Math.max() / Math.min()
+1. Retorna valor máximo e mínimo respectivamente.
+```
+console.log(Math.max(4, 1550, 110, 28, -71, -752))
+
+// Saída: 1550
+
+const a = [1,0,-5,7,12]
+console.log(Math.max(...a));
+
+// Saída: 12
+```
 
 ### css
 scroll suave por âncoras
