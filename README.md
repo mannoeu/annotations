@@ -344,9 +344,84 @@ cdn fontawesome ->
 
 
 
+### @testing-library/react
 
+1. Exemplo de teste tdd no react com @testing-library/react
+```
+npm install -D @testing-library/react
+```
+1. Criar arquivo com o nome do componente.test.js
+> Todo.test.js
+```
+importa React from 'react';
+importa o componente;
 
+import { render } from '@testing-library/react'
 
+//primeiro parâmetro descrição
+//segundo parâmetro uma função para executar
+
+describe('Tests para o Todo', () => {
+
+// descrever esse teste
+	it('should add new task when form has been submitted', async () => {
+		//renderizar comp
+
+		# Renderiza usando o render
+	
+		const { getByTestId, getByText } = render(<Todo />);
+
+		# devolve funções (no caso usando a getByTestId) do render - queries;
+		# buscas são assincronas por isso await e não esquecer que o it se torna async
+ 		# busca no jsx pelo elemento que contenha o atributo data-testid=""
+		# e vamos usar a função waitForElement do testing library
+
+		//buscar inputs
+		
+		const fieldNode = await waitForElement(() => getByTestId('form-field');
+		
+		// pode se testar com console.log(fieldNode);
+
+		# da pra fazer tudo agora como disparar evento
+		# e usar as coisas da api nativa
+
+		# fireEvent dispara eventos e é importada do testing-library
+
+		//digitar
+
+		fireEvent.change(fieldNode, {target: {value: 'novovalor'}})
+
+		# disparou o evento para mudar o target.value
+		# para preencher o campo do input
+
+		# verificando se o valor esperado está batendo
+		# através do expect
+
+		expect(fieldNode.value).toEqual('novovalor');
+
+		//buscar button
+
+		const btnNode = await waitForElement(() => getByTestId('btn-form'));
+
+		//clicar button
+
+		fireEvent.click(btnNode);
+
+		//buscar tabela
+
+		const tableNode = await waitForElement(()=> getByTestId('table'));
+
+		//verificar se o valor foi adicionado
+		// como foi adicionado o getByText, apenas seria necessário
+		// buscar o texto adicionado, sem precisar buscar a tabela
+
+		const tdNode = await waitForElement(()=> getByText('novovalor'));
+		
+		expect(tdNode).toBeDefined();
+	})
+	## cada it é um teste
+})
+```
 
 ### trechos de código
 Exibir números primos até um certo valor:
