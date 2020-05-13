@@ -464,3 +464,18 @@ import parseMoney from 'parseMoney';
 
 parseMoney(value);
 ```
+parallax background move with mouse
+```
+window.onmousemove = e => {
+    var x = e.clientX;
+    var y = e.clientY;
+
+    containerImg.style.backgroundPositionX = x + 'px';
+
+    containerImg.style.backgroundPositionY = y + 'px';
+}
+
+// para suavizar usar:
+- e.clientX / 5;
+- e.clientY / 5;
+```
