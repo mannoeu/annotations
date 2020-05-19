@@ -479,3 +479,20 @@ window.onmousemove = e => {
 - e.clientX / 5;
 - e.clientY / 5;
 ```
+
+Reverter string sem usar o reverse() do javascript
+
+```
+function toReverse(word){
+    let str = word.split('');
+    let finalString = [];
+    for(i = 0; i<=str.length; i++){
+        finalString[i] = str[str.length - i];
+    }
+    console.log(finalString.join(''))
+}
+
+toReverse('netflix');
+
+// Saída: xilften
+```
