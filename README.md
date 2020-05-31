@@ -496,3 +496,49 @@ toReverse('netflix');
 
 // Saída: xilften
 ```
+
+Meu próprio filter()
+
+```
+Array.prototype.myFilter = function(fn){
+    const filtered = [];
+    
+    for(let element of this){
+        if(fn(element)){
+          filtered.push(element);
+        }
+    }
+    return filtered;   
+}
+
+const array = ['a','b','c'];
+const result = array.myFilter(item => item === 'b');
+
+console.log(result);
+// Saída: ['b']
+```
+
+Meu próprio map()
+
+```
+Array.prototype.myMap = function(fn){
+    const mapped = [];
+
+    for(element of this){
+        mapped.push(fn(element));
+    }
+    return mapped;
+}
+
+const array = [1,2,3];
+const result = array.myMap(item => item * 2);
+
+console.log(result);
+// Saída: [2,4,6]
+```
+
+Meu próprio reduce()
+
+```
+-- construindo
+```
