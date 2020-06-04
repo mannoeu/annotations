@@ -1,6 +1,18 @@
 # codes
 
 ### js
+#### findIndex()
+Percorre um array e retorna o index do valor de comparação. Caso não exista, o valor retornado é igual a -1.
+
+```
+const array = [1,2,3];
+
+array.findIndex(item => item == 1);
+// Saída: 0;
+
+array.findIndex(item => item == 44);
+// Saída: -1
+```
 #### sort()
 Para comparar números ao invés de texto, a função de comparação pode simplesmente subtrair b de a. A função abaixo irá ordenar o array em ordem crescente:
 
