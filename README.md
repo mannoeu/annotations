@@ -1,6 +1,48 @@
 # codes
 
 ### js
+#### includes()
+
+Pode ser usado para string ou array, verificando se o parâmetro enviado está contido.
+
+```
+const array = [1,2,3,4];
+
+console.log(array.includes(1))
+// Saída: true
+
+console.log(array.includes(44))
+// Saída: false
+
+const word = 'Esta é uma sentença do tipo string';
+
+console.log(word.includes('uma'));
+// Saída: true
+
+console.log(word.includes('javascript'));
+// Saída: false
+
+```
+É possível enviar um segundo parâmetro que diz a partir de qual índice no array ou de qual caractere em uma string se iniciará a busca
+
+```
+const array = [1,2,3,4];
+
+console.log(array.includes(1, 3))
+// Saída: false
+
+console.log(array.includes(4, 2))
+// Saída: true
+
+const word = 'Esta é uma sentença do tipo string';
+
+console.log(word.includes('uma', 7));
+// Saída: true
+
+console.log(word.includes('uma', 8));
+// Saída: false
+```
+
 #### findIndex()
 Percorre um array e retorna o index do valor de comparação. Caso não exista, o valor retornado é igual a -1.
 
