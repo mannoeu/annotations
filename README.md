@@ -8,10 +8,10 @@ Pode ser usado para string ou array, verificando se o parâmetro enviado está c
 ```
 const array = [1,2,3,4];
 
-console.log(array.includes(1))
+console.log(array.includes(1));
 // Saída: true
 
-console.log(array.includes(44))
+console.log(array.includes(44));
 // Saída: false
 
 const word = 'Esta é uma sentença do tipo string';
@@ -28,10 +28,10 @@ console.log(word.includes('javascript'));
 ```
 const array = [1,2,3,4];
 
-console.log(array.includes(1, 3))
+console.log(array.includes(1, 3));
 // Saída: false
 
-console.log(array.includes(4, 2))
+console.log(array.includes(4, 2));
 // Saída: true
 
 const word = 'Esta é uma sentença do tipo string';
