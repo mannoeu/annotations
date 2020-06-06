@@ -591,8 +591,18 @@ console.log(result);
 // Saída: [2,4,6]
 ```
 
-Meu próprio reduce()
+## Usando TypeScript no backend
+ * instalar @types/express (são os tipos da lib) quando apresentar problemas
+ * instalar ts-node (para o node interpretar código ts)
+ * instalar typescript
+ * criar tsconfig.json com npx tsc --init
+ * iniciar servidor com npx ts-node src/server.js (ou criar script start com esse código)
+ * npm install ts-node-dev -D (parecido com o nodemon para n precisar ficar dando re-start)
 
-```
--- construindo
-```
+
+* Executar migrations
+* após criar o knexfile.ts na raiz
+* npx knex migrate:latest --knexfile kniexfile.ts migrate:latest
+* Criar script no package.json com o comando acima sem o npx
+
+
