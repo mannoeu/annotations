@@ -342,15 +342,29 @@ setar a bg do elemento original com position absolute;
 ### jquery
 scroll suave
 ```
-$('.nav a[href^="#"]').on('click', function(e) {
-	e.preventDefault();
-	var id = $(this).attr('href'),
+(function ($) {
+	"use strict";
+
+	$('.nav a[href^="#"]').on('click', function (e) {
+		e.preventDefault();
+		var id = $(this).attr('href'),
 			targetOffset = $(id).offset().top;
-			
-	$('html, body').animate({ 
-		scrollTop: targetOffset - 100
-	}, 600);
-});
+
+		$('html, body').animate({
+			scrollTop: targetOffset - 60
+		}, 600);
+	});
+
+		$('body').scrollspy({
+			target: '#app-navbar',
+			offset: 61
+		});
+
+	$('.closeNavBarOnClick').click(function () {
+		$('.navbar-collapse').collapse('hide');
+	});
+
+})(jQuery);
 ```
 
 
