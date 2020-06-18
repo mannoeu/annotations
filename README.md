@@ -622,3 +622,13 @@ console.log(result);
 * Criar script no package.json com o comando acima sem o npx
 
 
+### DefaultProps React
+
+Criar após o componente no mesmo arquivo:
+```
+NomeDoComponent.defaultProps = {
+   nome: 'nome padrao',
+   idade: 'idade padrao',
+}
+```
+
