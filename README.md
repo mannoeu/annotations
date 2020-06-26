@@ -632,3 +632,12 @@ NomeDoComponent.defaultProps = {
 }
 ```
 
+### Formatar datas do formato timeStamp para DIA/MES/ANO
+```
+let dateTimeStamp = 1569016800
+
+var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+console.log(`${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}`)
+```
+
