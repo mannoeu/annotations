@@ -638,6 +638,8 @@ let dateTimeStamp = 1569016800
 
 var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
+var date = new Date(dateTimeStamp * 1000);
+
 console.log(`${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}`)
 ```
 
