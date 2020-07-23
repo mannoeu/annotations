@@ -643,3 +643,12 @@ var date = new Date(dateTimeStamp * 1000);
 console.log(`${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}`)
 ```
 
+Format Price INTL
+```
+const options = { style: 'currency', currency: 'BRL'}
+const price = new Intl.NumberFormat('pt-BR', options)
+
+//usage 
+price.format(100)
+```
+
