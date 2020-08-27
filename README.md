@@ -632,15 +632,57 @@ NomeDoComponent.defaultProps = {
 }
 ```
 
-### Formatar datas do formato timeStamp para DIA/MES/ANO
+### Minha própria mini-lib de uma função só para formatar datas
 ```
-let dateTimeStamp = 1569016800
+const monthlynames = [
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro",
+];
 
-var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+export const formatDate = (stringDate, format = "dd-MM-yyyy") => {
+  if (stringDate === "") {
+    return "";
+  }
 
-var date = new Date(dateTimeStamp * 1000);
+  let date = stringDate ? new Date(stringDate) : new Date();
 
-console.log(`${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}`)
+  let day =
+    date.getUTCDate() <= 9 ? `0${date.getUTCDate()}` : date.getUTCDate();
+  let month =
+    date.getMonth() <= 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+  let monthIndex = date.getUTCMonth();
+  let fullYear = date.getFullYear();
+  let yearWithTwoDigits = date.getFullYear()?.toString()?.slice(-2);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+
+  if (format === "yyyy-MM-dd") {
+    return `${fullYear}-${month}-${day}`;
+  }
+  if (format === "dd-MM-yy") {
+    return `${day}/${month}/${yearWithTwoDigits}`;
+  }
+  if (format === "dd-month-yyyy") {
+    return `${day} ${monthlynames[monthIndex]} ${fullYear}`;
+  }
+  if (format === "dd-MM-yyyy-TT") {
+    return `${day}/${month}/${fullYear} - ${hours}:${minutes}`;
+  }
+
+  return `${day}-${month}-${fullYear}`;
+};
+
+chorastes moment??
 ```
 
 Format Price INTL
