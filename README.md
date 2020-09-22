@@ -634,6 +634,19 @@ NomeDoComponent.defaultProps = {
 
 ### Minha própria mini-lib de uma função só para formatar datas
 ```
+// formatDate recebe dois parâmetros não obrigatórios:
+// stringDate em formato timestamp ou date-time (string)
+// format para o formato do retorno que se não informado, retorna dia-mes-ano padrão
+
+// formatos de chamar função
+// formatDate() retorna data atual no formato 00/00/00000
+// formatDate('2020-07-02T00:00:00.000+0000') retorna a data especificada no formato dia-mes-ano
+// formatDate(null, 'yyyy-MM-dd') retorna a data atual no formato ano-mes-dia
+// formatDate('2020-07-02T00:00:00.000+0000', 'yyyy-MM-dd') retorna a data em questão no formato ano-mes-dia
+// formatDate('2020-07-02T00:00:00.000+0000','dd-MM-yyyy-TT') retorna data no formato dia/mes/ano hora:minuto
+// formatDate('2020-07-02T00:00:00.000+0000','dd-month-yyyy-TT') retorna data no formato dia/mes_por_extenso/ano hora:minuto
+// formatDate(null, "dd-MM-yyyy") retorna data corrente em formato 00/00/0000.
+
 const monthlynames = [
   "Janeiro",
   "Fevereiro",
@@ -649,6 +662,16 @@ const monthlynames = [
   "Dezembro",
 ];
 
+const dayNames = [
+  "Domingo",
+  "Segunda",
+  "Terça",
+  "Quarta",
+  "Quinta",
+  "Sexta",
+  "Sábado",
+];
+
 export const formatDate = (stringDate, format = "dd-MM-yyyy") => {
   if (stringDate === "") {
     return "";
@@ -656,18 +679,35 @@ export const formatDate = (stringDate, format = "dd-MM-yyyy") => {
 
   let date = stringDate ? new Date(stringDate) : new Date();
 
+  /* day, month and years */
+  let dayInteger = date.getUTCDay();
   let day =
-    date.getUTCDate() <= 9 ? `0${date.getUTCDate()}` : date.getUTCDate();
+    date.getUTCDate() <= 9
+      ? `${date.getUTCDate()}`.padStart(2, "0")
+      : date.getUTCDate();
   let month =
-    date.getMonth() <= 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+    date.getMonth() <= 9
+      ? `${date.getMonth() + 1}`.padStart(2, "0")
+      : date.getMonth() + 1;
   let monthIndex = date.getUTCMonth();
   let fullYear = date.getFullYear();
   let yearWithTwoDigits = date.getFullYear()?.toString()?.slice(-2);
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
+
+  /* hours and minutes */
+  let hours =
+    date.getHours() <= 9
+      ? `${date.getHours()}`.padStart(2, "0")
+      : date.getHours();
+  let minutes =
+    date.getMinutes() <= 9
+      ? `${date.getMinutes()}`.padStart(2, "0")
+      : date.getMinutes();
 
   if (format === "yyyy-MM-dd") {
-    return `${fullYear}-${month}-${day}`;
+    return `${fullYear}/${month}/${day}`;
+  }
+  if (format === "yyyy-MM-dd TT") {
+    return `${fullYear}/${month}/${day} ${hours}:${minutes}`;
   }
   if (format === "dd-MM-yy") {
     return `${day}/${month}/${yearWithTwoDigits}`;
@@ -678,9 +718,13 @@ export const formatDate = (stringDate, format = "dd-MM-yyyy") => {
   if (format === "dd-MM-yyyy-TT") {
     return `${day}/${month}/${fullYear} - ${hours}:${minutes}`;
   }
+  if (format === "day dd-MM-yyyy") {
+    return `${dayNames[dayInteger]} (${day}/${month}/${fullYear})`;
+  }
 
-  return `${day}-${month}-${fullYear}`;
+  return `${day}/${month}/${fullYear}`;
 };
+
 
 chorastes moment??
 ```
