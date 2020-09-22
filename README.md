@@ -738,3 +738,12 @@ const price = new Intl.NumberFormat('pt-BR', options)
 price.format(100)
 ```
 
+Format Phone
+
+```
+export function formatPhone(number) {
+  return String(number).replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+}
+formatPhone(84988552211)
+// (84) 98855-2211
+```
