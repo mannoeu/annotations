@@ -747,3 +747,27 @@ export function formatPhone(number) {
 formatPhone(84988552211)
 // (84) 98855-2211
 ```
+
+Controlar opções de incrementar e decrementar valores através de input type text (simulando input number)
+```
+export const increment = (value) => {
+  let fieldValue = (
+    parseFloat(value.replace(".", "").replace(",", ".")) + 1
+  ).toFixed(2);
+
+  return fieldValue;
+};
+
+export const decrement = (value) => {
+  let fieldValue = (
+    parseFloat(value.replace(".", "").replace(",", ".")) - 1
+  ).toFixed(2);
+
+  if (fieldValue.includes("-")) {
+    fieldValue = "000";
+  }
+
+  return fieldValue;
+};
+
+```
