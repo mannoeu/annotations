@@ -752,7 +752,7 @@ Controlar opções de incrementar e decrementar valores através de input type t
 ```
 export const increment = (value) => {
   let fieldValue = (
-    parseFloat(value.replace(".", "").replace(",", ".")) + 1
+    parseFloat(value.replaceAll(".", "").replace(",", ".")) + 1
   ).toFixed(2);
 
   return fieldValue;
@@ -760,7 +760,7 @@ export const increment = (value) => {
 
 export const decrement = (value) => {
   let fieldValue = (
-    parseFloat(value.replace(".", "").replace(",", ".")) - 1
+    parseFloat(value.replaceAll(".", "").replace(",", ".")) - 1
   ).toFixed(2);
 
   if (fieldValue.includes("-")) {
