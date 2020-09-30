@@ -771,3 +771,50 @@ export const decrement = (value) => {
 };
 
 ```
+### Context API
+```
+import React, { createContext, useContext, useReducer } from "react";
+
+const StoreContext = createContext();
+
+const initialState = {
+  closed: false,
+  amount: 0,
+  items: [],
+};
+
+const reducer = (state, action) => {
+  const mappedAction = {
+    GET_CART: {
+      closed: state.closed,
+      amount: state.amount,
+      items: state.items,
+    },
+    SET_CART: {
+      ...state,
+      closed: action.closed,
+      amount: action.amount,
+      items: action.items,
+    },
+    SET_AMOUNT: {
+      ...state,
+      amount: action.amount,
+    },
+  };
+
+  return mappedAction[action.type] || state;
+};
+
+export default function StoreProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <StoreContext.Provider value={{ state, dispatch }}>
+      {children}
+    </StoreContext.Provider>
+  );
+}
+
+export const useStore = () => useContext(StoreContext);
+
+```
