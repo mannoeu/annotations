@@ -818,3 +818,78 @@ export default function StoreProvider({ children }) {
 export const useStore = () => useContext(StoreContext);
 
 ```
+
+## Importar fontes de arquivos com @font-face
+
+```
+import CenturyGhotic from "./century-ghotic.ttf";
+.
+.
+.
+@font-face {
+    font-family: "Century Ghotic";
+    src: url(${CenturyGhotic});
+    font-weight: normal!important;
+    font-style: normal!important;
+  }
+```
+
+## Capturar scroll da página com ReactJs
+```
+const handleScroll = useCallback(() => {
+    if (document.documentElement.scrollTop > 100) {
+      if (!headerScroll) {
+        setHeaderScroll(true);
+      }
+    }
+
+    if (document.documentElement.scrollTop < 100) {
+      if (headerScroll) {
+        setHeaderScroll(false);
+      }
+    }
+  }, [headerScroll]);
+
+  useEffect(() => {
+    window.onscroll = () => handleScroll();
+  }, [handleScroll]);
+
+```
+
+## Redux com Hooks
+```
+const state = useSelector(state => state.token);
+const dispatch = useDispatch();
+
+dispatch({
+   type: "",
+   payload: {}
+});
+```
+## Redux com redux-persist
+```
+.
+.
+.
+import { persistStore } from "redux-persist";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"
+.
+.
+.
+const persistConfig = {
+  key: "@root-epaper",
+  storage,
+  whitelist: ["your-reducer-to-persist"],
+};
+.
+.
+.
+export const store = createStore(rootReducer);
+export const persistor = persistStore(store);
+.
+.
+.
+export default persistReducer(persistConfig, rootReducer);
+```
+
