@@ -892,4 +892,21 @@ export const persistor = persistStore(store);
 .
 export default persistReducer(persistConfig, rootReducer);
 ```
+Comparando objetos
+```
+const obj = {
+  name: '',
+  age: 0,
+  [Symbol.toPrimitive](type){
+    return JSON.stringify(this)
+  }
+}
+
+const a = {...obj, name: 'item a', age: 1};
+const b = {...obj, name: 'item b', age: 2};
+
+String(a) === String(b)
+
+// false;
+```
 
