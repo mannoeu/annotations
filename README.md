@@ -910,3 +910,19 @@ String(a) === String(b)
 // false;
 ```
 
+### Operador Not (!)
+
+Retorna falso se o seu operando pode ser convertido para verdadeiro, senão, retorna verdadeiro.
+Se um valor pode ser convertido para verdadeiro, este valor é chamado de truthy. Se um valor pode ser convertido para falso, este valor é chamado de falsy.
+
+Valores truthy:
+null, NaN, 0, string vazia ("") e undefined.
+
+cart = {
+ price: 14.9,
+ price_discount: undefined,
+};
+
+!cart.price_discount => true
+!cart.price => false
+
