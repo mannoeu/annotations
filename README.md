@@ -315,6 +315,16 @@ background: linear-gradient(0deg,#130b1a 0,rgba(19,11,26,.71)
   38%,rgba(7,6,10,.61) 
   58%,rgba(11,7,21,.76) 100%);
 }
+ou
+::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient( to bottom, #yourcolor,rgba(0,0,0,0.3),#yourcolor 90% );
+    width: 100%;
+    height: 100%;
+}
 
 2. A primeira cor é a da seção de baixo, as demais são variações para formar degrade
 setar a bg do elemento original com position absolute;
