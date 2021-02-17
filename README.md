@@ -936,3 +936,35 @@ cart = {
 !cart.price_discount => true
 !cart.price => false
 
+
+### Verificar se elemento está em tela / verificar intersecção entre elementos
+
+```
+var options = {
+    root: document.querySelector("body"),
+    rootMargin: '0px',
+    threshold: 1.0,
+};
+
+var observer = new IntersectionObserver((entry)=>{
+    return console.log(entry[0].boundingClientRect);
+});
+
+var target = document.querySelector(".test")
+
+observer.observe(target);
+
+// retorno - a primeira vez quando executado e as demais quando o elemento sai ou entra na área de comparação da intersecção.
+
+DOMRectReadOnly: {
+	bottom: 744
+	height: 279
+	left: 0
+	right: 972
+	top: 465
+	width: 972
+	x: 0
+	y: 465
+}
+
+```
